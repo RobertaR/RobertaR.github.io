@@ -36,39 +36,62 @@
         <ul></ul>
       </nav>
       <section>
-      	<h2>"Bel Air" chair 1982</h2>
+      	<h2>Ray-Ban Model 5154</h2>
 			
-		<p> <img src= "images/chair.jpg" hspace="150">
+      <table>
+        <td>
+          <img src= "images/glasses.jpg" hspace="20">
+        </td>
+        <td>
+      <img src="images/g5.jpg" class="imageborder" hspace = "10"></img>
+    </td>
+</table>
 
 	<h3>Realization</h3>
-	 <table>
-	 	<td>
-      		<img src="images/c2.jpg" class="imageborder" hspace = "50"></img>
-    	</td>
-    	<td>
-      		<img src="images/c1.jpg" class="imageborder" hspace = "50"></img>
-    	</td>
-    </table>
-	
-		<pre><code> //////////////// ------- cuscino -------- /////////////
-var control_p1 = [[0.65,-0.01, 1.1],[0.6,-0.05, 1.033],[0.6,-0.05, 1.447],[0.65,-0.01, 1.38]]
-var control_p2 = [[2.43,-0.01, 1.1],[2.48,-0.05, 1.033],[2.48,-0.05, 1.447],[2.43,-0.01, 1.38]]
+  <table class = "table_for_models">
+      <td>
+   		 <img src="images/g1.jpg" class="imageborder" hspace = "30"></img>
+      </td>
+      <td>
+        <img src="images/g2.jpg" class="imageborder" hspace = "30"></img>
+    </td>
+</table>
 
-var cs1 = BEZIER(S0)([[0.65,-0.01, 1.38], [2.01,-0.02, 1.39],[2.43,-0.01, 1.38]])
-var css = BEZIER(S0)([[0.65,-0.01, 1.1],[1.25,-0.03, 1.1], [2.01,-0.03, 1.1],[2.43,-0.01, 1.1]])
+		<pre><code>   /////// ----------------- rubber ----------------- ////////
+var g1 = BEZIER(S0)([[6.7+0.17,0.6, 4.67], [7.1+0.2,0, 4.65], [7.22+0.33,0, 6], [7+0.43,0.6, 6.02]])
+var g2 = BEZIER(S0)([[6.7+0.17,0.6, 4.67], [6.23+0.2,1, 4.82],[6.422+0.33,1, 5.12],[6.6+0.43,1, 5.36], [6.7+0.25,1, 5.66], [6.8+0.25,1, 6.16], [7+0.43,0.6, 6.02]])
+var g1_y = BEZIER(S0)([[6.7+0.25,0.6, 4.67], [7.09+0.5,0, 4.65], [7.2+0.53,0, 6], [7+0.48,0.6, 6.02]])
+var g2_y = BEZIER(S0)([[6.7+0.25,0.6, 4.67], [6.31+0.5,1, 4.62],[6.5+0.53,0.8, 4.92],[6.7+0.63,1, 5.16], [6.8+0.45,1, 5.46], [6.9+0.4,1, 5.96], [7+0.48,0.6, 6.02]])
 
-var c1_1 = BEZIER(S1)(control_p1)
-var c2_1 = BEZIER(S1)(control_p2)
-var unione_coons = MAP(COONS_PATCH([css,cs1,c1_1,c2_1]))(dom2D);</code></pre>
+var union_g1_left = COLOR(rgba(transparent))(MAP(BEZIER(S1)([g1,g2,g2_y,g1_y,g1]))(dom2D))</code></pre>
+
+  <table class = "table_for_models">
+      <td>
+       <img src="images/g7.jpg" class="imageborder" hspace = "30"></img>
+      </td>
+      <td>
+        <img src="images/scritta.jpg" class="imageborder" hspace = "30"></img>
+    </td>
+</table>
+<pre><code> ///----------- lens's juncture 
+var giunt1 = BEZIER(S0)([[0,1.27, 1.94], [0,1.25, 2.01], [0,1.16, 2.02], [0,1.02, 2.01]])
+var giunt2 = BEZIER(S0)([[0,1.27, 1.94], [0,1.25, 1.87], [0,1.16, 1.86], [0,1.02, 1.87]])
+
+var union_giunt1 = MAP(BEZIER(S1)([giunt1,giunt2]))(dom2D)
+
+//disk
+var d_g1 = T([0,1,2])([0.04,1,1.87])(extrude(DISK(0.05)([64, 2]),0.02))
+var disks_g1 = STRUCT(REPLICA(3)([d_g1,T1([2])([0.048])]))</code></pre>
 
     <!-- <button style="margin-top:10px; margin-bottom:10px;" onClick="clicked3DSofa()"> -->
-    <table class="table_for_models">
-    <td> <button onClick="clicked3DChair()" >
+    <table>
+    <td> <button onClick="clicked3DGlasses()" >
       <br/>Render the Model</button> 
     </td>
      </table> 
 	<div id="plasm" style="margin-left:113px;overflow: hidden; max-width:700px; max-height:600px;"></div>
-<button  onClick="parent.location='index.html';">Home</button> 
+  
+  <button  onClick="parent.location='index.html';">Home</button> 
 
     <!--/////////////////////////////////////////////////////////////////////////////////////
     script plasm -->
@@ -88,7 +111,7 @@ var unione_coons = MAP(COONS_PATCH([css,cs1,c1_1,c2_1]))(dom2D);</code></pre>
     <script src="lib/plasm-env.js"></script>
 
  <!--/////////////////////////////////////////////////////////////////////////// -->
-   <script src="javascripts/chair.js"></script> 
+   <script src="javascripts/glasses.js"></script> 
 
    </body>
 </html>

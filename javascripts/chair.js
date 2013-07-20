@@ -8,7 +8,7 @@ var clicked3DChair = function() {
     canvas.setAttribute("onmouseover","hiddenBody()");
     canvas.setAttribute("onmouseout","clearBody()");
 
-    showModel2();
+    showChair();
 }
 
 function hiddenBody() {
@@ -109,7 +109,7 @@ return [u,v,w];
 
 
 ////////////////////////////////////////////////////////
-var showModel2 = function(){
+var showChair = function(){
     var x = 50
     var domain = INTERVALS(1)(x)
     var dom2D = PROD1x1([INTERVALS(1)(x),INTERVALS(1)(x)])
