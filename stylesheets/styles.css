@@ -641,7 +641,7 @@ th {
 }
 
 td {
-  text-align: left;
+  text-align: center;
   padding: 5px 5px;
   /*border-bottom: 1px solid #e5e5e5;*/
   /*border-right: 1px solid #ffcc00;*/
@@ -698,6 +698,12 @@ header p {
   font-size: 18px;
   margin: 0px;
 }
+
+.tdhome{
+  text-align: right;
+  padding: 5px 5px;
+}
+
 #buttonX {
 background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffe788), color-stop(100%, #ffce38));
 background-color: #DFDFDF;

@@ -36,45 +36,39 @@
         <ul></ul>
       </nav>
       <section>
-      	<h2>"Bel Air" chair 1982</h2>
+      	<h2>"Dublin" sofa 1981</h2>
 			
-		<p> <img src= "images/chair.jpg" hspace="150">
+		<p> <img src= "images/smallSofa.jpg" hspace="150">
 
 	<h3>Realization</h3>
 	 <table>
 	 	<td>
-      		<img src="images/c2.jpg" class="imageborder" hspace = "50"></img>
+      		<img src="images/ss2.jpg" class="imageborder" hspace = "50"></img>
     	</td>
     	<td>
-      		<img src="images/c1.jpg" class="imageborder" hspace = "50"></img>
+      		<img src="images/ss1.jpg" class="imageborder" hspace = "50"></img>
     	</td>
     </table>
 	
-		<pre><code> //////////////// ------- cuscino -------- /////////////
-var control_p1 = [[0.65,-0.01, 1.1],[0.6,-0.05, 1.033],[0.6,-0.05, 1.447],[0.65,-0.01, 1.38]]
-var control_p2 = [[2.43,-0.01, 1.1],[2.48,-0.05, 1.033],[2.48,-0.05, 1.447],[2.43,-0.01, 1.38]]
+		<pre><code> /////// NUBS CHANGE-POINTS
+var po1 = change_value_coordinate(control_points_circle_axis_x_y(0.05),2,0.6)
+var po2 = change_value_coordinate(control_points_circle_axis_x_y(0.05),1,0.25)
 
-var cs1 = BEZIER(S0)([[0.65,-0.01, 1.38], [2.01,-0.02, 1.39],[2.43,-0.01, 1.38]])
-var css = BEZIER(S0)([[0.65,-0.01, 1.1],[1.25,-0.03, 1.1], [2.01,-0.03, 1.1],[2.43,-0.01, 1.1]])
+var nodes = calc_nodes(po1,2)
 
-var c1_1 = BEZIER(S1)(control_p1)
-var c2_1 = BEZIER(S1)(control_p2)
-var unione_coons = MAP(COONS_PATCH([css,cs1,c1_1,c2_1]))(dom2D);</code></pre>
+var nn1 = NUBS(S0)(2)(nodes)(po1);
+var nn2 = NUBS(S0)(2)(nodes)(po2);
+var bezier = BEZIER(S1)([nn1,nn2]);</code></pre>
 
     <!-- <button style="margin-top:10px; margin-bottom:10px;" onClick="clicked3DSofa()"> -->
     <table class="table_for_models">
-    <td> <button onClick="clicked3DChair()" >
+    <td> <button onClick="clicked3DSmallSofa()" >
       <br/>Render the Model</button> 
     </td>
      </table> 
 	<div id="plasm" style="margin-left:113px;overflow: hidden; max-width:700px; max-height:600px;"></div>
- 
-  <table class="table_for_models">
-    <td class="tdhome">
-      <button  onClick="parent.location='index.html';">Home</button>
-    </td>
-  </table> 
 
+  <button  align = "right" onClick="parent.location='index.html';">Home</button> 
     <!--/////////////////////////////////////////////////////////////////////////////////////
     script plasm -->
     <script src="plasm-js/jquery.js"></script>
@@ -93,7 +87,7 @@ var unione_coons = MAP(COONS_PATCH([css,cs1,c1_1,c2_1]))(dom2D);</code></pre>
     <script src="lib/plasm-env.js"></script>
 
  <!--/////////////////////////////////////////////////////////////////////////// -->
-   <script src="javascripts/chair.js"></script> 
+   <script src="javascripts/smallSofa.js"></script> 
 
    </body>
 </html>
